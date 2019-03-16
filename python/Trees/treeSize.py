@@ -11,12 +11,12 @@ class Node:
                 if self.left is None:
                     self.left = Node(data)
                 else:
-                    self.left.insert(data)
+                    self.left.insert(Node(data))
             elif data > self.data:
                 if self.right is None:
                     self.right = Node(data)
                 else:
-                    self.right.insert(data)
+                    self.right.insert(Node(data))
             else:
                 self.data=Node(data)
     
@@ -32,7 +32,7 @@ class Node:
             return 0
         else:
             return self.findSize(node.left)+1+self.findSize(node.right)
-n
+
 root = Node(12)
 root.insert(6)
 root.insert(14)
