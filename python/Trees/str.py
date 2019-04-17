@@ -2,6 +2,11 @@
 strlist = list()
 emails = ["test.email+alex@leetcode.com","test.e.mail+bob.cathy@leetcode.com"]
 count=0
+#first split at @
+#then in first element- remove . using replace and 
+#then after removing dots in the same string split at + and take the a[0] string
+#now join the elements in array and use set to find unique elemnts
+#return the length
 for email in emails:
     st =email.split('@')
     st[1] = '@'+st[1]

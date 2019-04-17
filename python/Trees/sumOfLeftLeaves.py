@@ -5,6 +5,7 @@ class Node:
         self.data = data
     
     def insert(self,data):
+       
         if self.data: 
             if data < self.data:
                 if self.left is None:
@@ -26,21 +27,35 @@ class Node:
         if self.right:
             self.right.printTree()
 
-    def leftLeavesSum(self):
-            if self.left is None and self.right is None:
-                print(self.data)
+    def isLeaf(self,root):
+
+        if root is None:
+            return False
+        if root.left is None and root.right is None:
+            print(root.data)
+            return True
+        return False
+            
+    def sumOfLeftLeaves(self,root):
+
+        res = 0
+        if root is not None:
+            if self.isLeaf(root.left):
+                res = res + root.left.data
             else:
-                self.left.leftLeavesSum()
-            self.right.left
+                res = res + self.sumOfLeftLeaves(root.left)
+            res = res+self.sumOfLeftLeaves(root.right)
+        return res
 
-    
-
-root = Node(10)
-root.insert(7)
-root.insert(5)
-root.insert(1)
-root.insert(6)
-root.insert(11)
-root.insert(9)
+root = Node(20) 
+root.left = Node(9) 
+root.right = Node(49) 
+root.right.left = Node(23)         
+root.right.right = Node(52) 
+root.right.right.left = Node(50) 
+root.left.left = Node(5) 
+root.left.right = Node(12) 
+root.left.right.right = Node(12) 
 #root.printTree()
-root.leftLeavesSum()
+s=root.sumOfLeftLeaves(root)
+print("Sum is:",s)
