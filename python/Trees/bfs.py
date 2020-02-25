@@ -50,6 +50,10 @@ class Node:
         for i in range(1,h+1):
             self.printlvldata(root,i)
 
+    def swapPairs(self,arr):
+        
+
+
 root = Node(3)
 root.insert(1)
 root.insert(2)
@@ -57,5 +61,7 @@ root.insert(4)
 root.printTree()
 print("")
 ht= root.height(root)
+arr = [1,2,3,4]
+root.swapPairs(arr)
 
 root.bfs(root)
